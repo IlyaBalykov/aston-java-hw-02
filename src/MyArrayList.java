@@ -32,8 +32,12 @@ public class MyArrayList <E> implements Collection <E> {
 
     }
 
-    public E get() {
-
+    public E get(int index) {
+        if (index >= 0 && index <= size - 1) {
+            return (E) newArray[index];
+        } else {
+            throw new IndexOutOfBoundsException("Индекс вне границ. Индекс: " + index + " Размер: " + size);
+        }
     }
 
     public boolean remove(Object obj) {
