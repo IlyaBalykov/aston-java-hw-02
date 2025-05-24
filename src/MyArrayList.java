@@ -1,7 +1,7 @@
-import java.sql.Array;
 import java.util.Collection;
+import java.util.List;
 
-public class MyArrayList <E> implements Collection <E> {
+public class MyArrayList <E> implements List<E> {
 
     private Object[] newArray;
     private int size;
@@ -13,6 +13,7 @@ public class MyArrayList <E> implements Collection <E> {
         this.size = 0;
     }
 
+    @Override
     public boolean add(E obj) {
         if (size == newArray.length) {
             Object[] tmpArray = new Object[(int) ((size * 1.5) + 1)];
@@ -28,6 +29,7 @@ public class MyArrayList <E> implements Collection <E> {
         }
     }
 
+    @Override
     public boolean addAll(Collection <? extends  E> elements) {
         if (size + elements.size()> newArray.length) {
             Object[] tmpArray = new Object[(int) (size + elements.size() + 1)];
@@ -41,6 +43,7 @@ public class MyArrayList <E> implements Collection <E> {
         return true;
     }
 
+    @Override
     public E get(int index) {
         if (index >= 0 && index <= size - 1) {
             return (E) newArray[index];
@@ -49,6 +52,7 @@ public class MyArrayList <E> implements Collection <E> {
         }
     }
 
+    @Override
     public boolean remove(Object obj) {
         int foundIndex = -1;
         for (int index = 0; index < size; index++) {
