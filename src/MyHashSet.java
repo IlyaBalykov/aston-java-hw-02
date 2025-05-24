@@ -18,4 +18,9 @@ public class MyHashSet <E> implements Collection <E>{
             return true;
         }
     }
+
+    @Override
+    public boolean remove(Object someObj) {
+        return  newArray.remove(someObj);
+    }
 }
