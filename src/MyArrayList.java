@@ -36,7 +36,22 @@ public class MyArrayList <E> implements Collection <E> {
 
     }
 
-    public boolean remove() {
+    public boolean remove(Object obj) {
+        int foundIndex = -1;
+        for (int index = 0; index < size; index++) {
+            if (newArray[index] != null && newArray[index].equals(obj)) {
+                foundIndex = index;
+                break;
+            }
+        }
 
+        if (foundIndex != -1) {
+            System.arraycopy(newArray, foundIndex + 1, newArray, foundIndex, size - (foundIndex + 1));
+            size--;
+            newArray[size] = null;
+            return true;
+        } else {
+            return false;
+        }
     }
 }
