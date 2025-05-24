@@ -28,8 +28,17 @@ public class MyArrayList <E> implements Collection <E> {
         }
     }
 
-    public boolean addAll() {
-
+    public boolean addAll(Collection <? extends  E> elements) {
+        if (size + elements.size()> newArray.length) {
+            Object[] tmpArray = new Object[(int) (size + elements.size() + 1)];
+            System.arraycopy(newArray, 0, tmpArray, 0, size);
+            newArray = tmpArray;
+        }
+        for (E el: elements) {
+            newArray[size] = el;
+            size++;
+        }
+        return true;
     }
 
     public E get(int index) {
