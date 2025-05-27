@@ -1,9 +1,10 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Collection;
 
 public class MyHashSet <E> implements Collection <E> {
 
-    private ArrayList <E> newArray;
+    private List <E> newArray;
 
     public MyHashSet() {
         this.newArray = new ArrayList<>();
@@ -21,6 +22,6 @@ public class MyHashSet <E> implements Collection <E> {
 
     @Override
     public boolean remove(Object someObj) {
-        return  newArray.remove(someObj);
+        return newArray.remove(someObj);
     }
 }
