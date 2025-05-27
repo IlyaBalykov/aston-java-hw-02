@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class MyHashSet <E> implements Collection <E>{
+public class MyHashSet <E> implements Collection <E> {
 
     private ArrayList <E> newArray;
 
