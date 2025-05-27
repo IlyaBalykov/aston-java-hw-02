@@ -3,12 +3,12 @@ import java.util.List;
 
 public class MyArrayList <E> implements List<E> {
 
-    private Object[] newArray;
+    private E[] newArray;
     private int size;
 
     public MyArrayList(int initialSize) {
         if (initialSize >= 0) {
-            this.newArray = new Object[initialSize];
+            this.newArray = (E[]) new Object[initialSize];
         }
         this.size = 0;
     }
@@ -18,7 +18,7 @@ public class MyArrayList <E> implements List<E> {
         if (size == newArray.length) {
             Object[] tmpArray = new Object[(int) ((size * 1.5) + 1)];
             System.arraycopy(newArray, 0, tmpArray, 0, size);
-            newArray = tmpArray;
+            newArray = (E[]) tmpArray;
             newArray[size] = obj;
             size++;
             return true;
@@ -34,7 +34,7 @@ public class MyArrayList <E> implements List<E> {
         if (size + elements.size()> newArray.length) {
             Object[] tmpArray = new Object[(int) (size + elements.size() + 1)];
             System.arraycopy(newArray, 0, tmpArray, 0, size);
-            newArray = tmpArray;
+            newArray = (E[]) tmpArray;
         }
         for (E el: elements) {
             newArray[size] = el;
